@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Learning Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-mode">
+  <header>
+    <div class="container">
+      <h1>Student Learning Hub</h1>
+      <div class="header-controls">
+        <div class="search-container">
+          <input type="text" id="searchBar" placeholder="Search resources...">
+          <button id="searchBtn">🔍</button>
+        </div>
+        <select id="categorySelect">
+          <option value="all">All Categories</option>
+          <option value="science">Science</option>
+          <option value="generalKnowledge">General Knowledge</option>
+          <option value="maths">Maths</option>
+          <option value="motivation">Motivation</option>
+          <option value="ai">Artificial Intelligence</option>
+          <option value="literature">Literature</option>
+          <option value="history">History</option>
+          <option value="technology">Technology</option>
+          <option value="pyqs">Previous Year Questions</option>
+          <option value="questionBank">Question Bank</option>
+          <option value="ncertBooks">NCERT Books</option>
+        </select>
+        <button id="darkModeToggle">🌙 Light Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card-grid">
+      <div class="card science">
+        <a href="science.html" style="text-decoration: none; color: inherit;">
+          <h2>Science</h2>
+          <p class="card-description">Explore scientific concepts and resources here.</p>
+          <ul>
+            <li>Physics Notes</li>
+            <li>Chemistry Lab Manual</li>
+            <li>Biology Resources</li>
+            <li>Science Projects</li>
+          </ul>
+        </a>
+      </div>
+      <div class="card generalKnowledge">
+        <h2>General Knowledge</h2>
+        <p class="card-description">Stay updated with facts and trivia.</p>
+        <ul>
+          <li>Current Affairs</li>
+          <li>World History</li>
+          <li>Geography Facts</li>
+          <li>Quiz Practice</li>
+        </ul>
+      </div>
+      <div class="card maths">
+        <h2>Maths</h2>
+        <p class="card-description">Practice maths with problems and guides.</p>
+        <ul>
+          <li>Algebra Solutions</li>
+          <li>Geometry Practice</li>
+          <li>Calculus Notes</li>
+          <li>Math Formulas</li>
+        </ul>
+      </div>
+      <div class="card motivation">
+        <h2>Motivation</h2>
+        <p class="card-description">Read inspiring quotes and success stories.</p>
+        <ul>
+          <li>Success Stories</li>
+          <li>Daily Quotes</li>
+          <li>Study Tips</li>
+          <li>Time Management</li>
+        </ul>
+      </div>
+      <div class="card ai">
+        <h2>Artificial Intelligence</h2>
+        <p class="card-description">Discover the world of AI and its uses.</p>
+        <ul>
+          <li>Machine Learning Basics</li>
+          <li>AI Applications</li>
+          <li>Neural Networks</li>
+          <li>AI Projects</li>
+        </ul>
+      </div>
+      <div class="card pyqs">
+        <h2>Previous Year Questions</h2>
+        <p class="card-description">Access past exam papers and practice questions.</p>
+        <ul>
+          <li>Past Papers Collection</li>
+          <li>Solved Examples</li>
+          <li>Answer Keys</li>
+          <li>Practice Sets</li>
+        </ul>
+      </div>
+      <div class="card questionBank">
+        <h2>Question Bank</h2>
+        <p class="card-description">Comprehensive collection of subject-wise questions.</p>
+        <ul>
+          <li>Subject-wise Questions</li>
+          <li>Topic Tests</li>
+          <li>Mock Papers</li>
+          <li>Solutions Guide</li>
+        </ul>
+      </div>
+      <div class="card ncertBooks">
+        <a href="https://ncert.nic.in/textbook.php" target="_blank" style="text-decoration: none; color: inherit;">
+          <h2>NCERT Books</h2>
+          <p class="card-description">Click Here For Books . </p>
+          <ul>
+            <li>Class-wise Books</li>
+            <li>NCERT Original Books</li>
+            <li>Class I TO XII </li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+  <script>
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const body = document.body;
+    const searchBar = document.getElementById("searchBar");
+    const searchBtn = document.getElementById("searchBtn");
+    const categorySelect = document.getElementById("categorySelect");
+    const cards = document.querySelectorAll('.card');
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light-mode");
+      body.classList.toggle("dark-mode");
+      if (body.classList.contains("light-mode")) {
+        toggleBtn.textContent = "🌚 Dark Mode";
+      } else {
+        toggleBtn.textContent = "🌙 Light Mode";
+      }
+    });
+
+    function searchResources() {
+      const searchTerm = searchBar.value.toLowerCase();
+      const selectedCategory = categorySelect.value;
+      cards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+        const matchesCategory = selectedCategory === 'all' || card.classList.contains(selectedCategory);
+        card.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
+      });
+    }
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+
+    scrollTopBtn.addEventListener("click", function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    });
+
+    searchBar.addEventListener('input', searchResources);
+    searchBtn.addEventListener('click', searchResources);
+    categorySelect.addEventListener('change', searchResources);
+  </script>
+</body>
+</html>
