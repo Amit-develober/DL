@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Learning Hub</title>
+  <title>Scan Digital Library</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="dark-mode">
+<body>
   <header>
     <div class="container">
-      <h1>Student Learning Hub</h1>
+      <h1>Scan Digital Library</h1>
       <div class="header-controls">
         <div class="search-container">
           <input type="text" id="searchBar" placeholder="Search resources...">
@@ -29,7 +29,6 @@
           <option value="questionBank">Question Bank</option>
           <option value="ncertBooks">NCERT Books</option>
         </select>
-        <button id="darkModeToggle">🌙 Light Mode</button>
       </div>
     </div>
   </header>
@@ -49,64 +48,76 @@
         </a>
       </div>
       <div class="card generalKnowledge">
-        <h2>General Knowledge</h2>
-        <p class="card-description">Stay updated with facts and trivia.</p>
-        <ul>
-          <li>Current Affairs</li>
-          <li>World History</li>
-          <li>Geography Facts</li>
-          <li>Quiz Practice</li>
-        </ul>
+        <a href="general-knowledge.html" style="text-decoration: none; color: inherit;">
+          <h2>General Knowledge</h2>
+          <p class="card-description">Stay updated with facts and trivia.</p>
+          <ul>
+            <li>Current Affairs</li>
+            <li>World History</li>
+            <li>Geography Facts</li>
+            <li>Quiz Practice</li>
+          </ul>
+        </a>
       </div>
       <div class="card maths">
-        <h2>Maths</h2>
-        <p class="card-description">Practice maths with problems and guides.</p>
-        <ul>
-          <li>Algebra Solutions</li>
-          <li>Geometry Practice</li>
-          <li>Calculus Notes</li>
-          <li>Math Formulas</li>
-        </ul>
+        <a href="maths.html" style="text-decoration: none; color: inherit;">
+          <h2>Maths</h2>
+          <p class="card-description">Practice maths with problems and guides.</p>
+          <ul>
+            <li>Algebra Solutions</li>
+            <li>Geometry Practice</li>
+            <li>Calculus Notes</li>
+            <li>Math Formulas</li>
+          </ul>
+        </a>
       </div>
       <div class="card motivation">
-        <h2>Motivation</h2>
-        <p class="card-description">Read inspiring quotes and success stories.</p>
-        <ul>
-          <li>Success Stories</li>
-          <li>Daily Quotes</li>
-          <li>Study Tips</li>
-          <li>Time Management</li>
-        </ul>
+        <a href="motivation.html" style="text-decoration: none; color: inherit;">
+          <h2>Motivation</h2>
+          <p class="card-description">Read inspiring quotes and success stories.</p>
+          <ul>
+            <li>Success Stories</li>
+            <li>Daily Quotes</li>
+            <li>Study Tips</li>
+            <li>Time Management</li>
+          </ul>
+        </a>
       </div>
       <div class="card ai">
-        <h2>Artificial Intelligence</h2>
-        <p class="card-description">Discover the world of AI and its uses.</p>
-        <ul>
-          <li>Machine Learning Basics</li>
-          <li>AI Applications</li>
-          <li>Neural Networks</li>
-          <li>AI Projects</li>
-        </ul>
+        <a href="artificial-intelligence.html" style="text-decoration: none; color: inherit;">
+          <h2>Artificial Intelligence</h2>
+          <p class="card-description">Discover the world of AI and its uses.</p>
+          <ul>
+            <li>Machine Learning Basics</li>
+            <li>AI Applications</li>
+            <li>Neural Networks</li>
+            <li>AI Projects</li>
+          </ul>
+        </a>
       </div>
       <div class="card pyqs">
-        <h2>Previous Year Questions</h2>
-        <p class="card-description">Access past exam papers and practice questions.</p>
-        <ul>
-          <li>Past Papers Collection</li>
-          <li>Solved Examples</li>
-          <li>Answer Keys</li>
-          <li>Practice Sets</li>
-        </ul>
+        <a href="previous-year-questions.html" style="text-decoration: none; color: inherit;">
+          <h2>Previous Year Questions</h2>
+          <p class="card-description">Access past exam papers and practice questions.</p>
+          <ul>
+            <li>Past Papers Collection</li>
+            <li>Solved Examples</li>
+            <li>Answer Keys</li>
+            <li>Practice Sets</li>
+          </ul>
+        </a>
       </div>
       <div class="card questionBank">
-        <h2>Question Bank</h2>
-        <p class="card-description">Comprehensive collection of subject-wise questions.</p>
-        <ul>
-          <li>Subject-wise Questions</li>
-          <li>Topic Tests</li>
-          <li>Mock Papers</li>
-          <li>Solutions Guide</li>
-        </ul>
+        <a href="question-bank.html" style="text-decoration: none; color: inherit;">
+          <h2>Question Bank</h2>
+          <p class="card-description">Comprehensive collection of subject-wise questions.</p>
+          <ul>
+            <li>Subject-wise Questions</li>
+            <li>Topic Tests</li>
+            <li>Mock Papers</li>
+            <li>Solutions Guide</li>
+          </ul>
+        </a>
       </div>
       <div class="card ncertBooks">
         <a href="https://ncert.nic.in/textbook.php" target="_blank" style="text-decoration: none; color: inherit;">
@@ -125,23 +136,11 @@
   <button id="scrollTopBtn" title="Go to top">↑</button>
 
   <script>
-    const toggleBtn = document.getElementById("darkModeToggle");
-    const body = document.body;
     const searchBar = document.getElementById("searchBar");
     const searchBtn = document.getElementById("searchBtn");
     const categorySelect = document.getElementById("categorySelect");
     const cards = document.querySelectorAll('.card');
     const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("light-mode");
-      body.classList.toggle("dark-mode");
-      if (body.classList.contains("light-mode")) {
-        toggleBtn.textContent = "🌚 Dark Mode";
-      } else {
-        toggleBtn.textContent = "🌙 Light Mode";
-      }
-    });
 
     function searchResources() {
       const searchTerm = searchBar.value.toLowerCase();
