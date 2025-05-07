@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
 
 :root {
-    --background-color: #ffffff;
+    --background-color: #e0e0e0;
     --text-color: #ffffff;
     --accent-color: #FFD700;
     --red: #ff595e;
@@ -20,10 +20,12 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: #ffffff;
+    background: #e0e0e0;
     font-family: 'Comic Relief', Arial, sans-serif;
     transition: all 0.5s ease;
     padding-bottom: 60px;
+    font-weight: bold;
+    font-size: 1.1em;  /* Added base font size */
 }
 
 .container {
@@ -36,14 +38,28 @@ body {
 /* Header Styles */
 header {
     padding: 20px;
-    background: linear-gradient(90deg, var(--purple), var(--blue));
-    color: white;
+    background: linear-gradient(-45deg, var(--purple), var(--blue), var(--green), var(--yellow));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: rgb(199, 199, 199);
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .header-controls {
@@ -168,6 +184,7 @@ select {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .card-content {
@@ -183,6 +200,7 @@ select {
 .card-content li {
     padding: 8px 0;
     border-bottom: 1px solid #333;
+    font-weight: bold;
 }
 
 .show-more-btn {
@@ -239,7 +257,8 @@ select {
 }
 
 .large-text {
-    font-size: 1.3em;
+    font-size: 1.5em;  /* Increased from 1.3em to maintain hierarchy */
+    font-weight: bold;
 }
 
 .science { border-top: 5px solid var(--red); }
@@ -256,6 +275,7 @@ select {
 
 .card-description {
     color: #666;
+    font-weight: bold;
 }
 
 ul {
@@ -293,10 +313,7 @@ ul li::before {
     border-radius: 15px;
     background-color: #f0f0f0;
     transition: background-color 0.3s ease;
-}
-
-.link-highlight:hover {
-    background-color: #e0e0e0;
+    font-weight: bold;
 }
 
 /* Custom Scrollbar */
@@ -318,48 +335,10 @@ ul li::before {
     background: linear-gradient(var(--blue), var(--purple));
 }
 
-/* Bubble Animation Styles */
-.bubble-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.bubble {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: float 8s infinite, colorChange 6s infinite;
-    backdrop-filter: blur(1px);
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh) scale(0);
-    }
-    100% {
-        transform: translateY(-10vh) scale(1);
-    }
-}
-
-@keyframes colorChange {
-    0% { background: rgba(255, 89, 94, 0.2); }  /* red */
-    20% { background: rgba(255, 146, 76, 0.2); }  /* orange */
-    40% { background: rgba(255, 202, 58, 0.2); }  /* yellow */
-    60% { background: rgba(138, 201, 38, 0.2); }  /* green */
-    80% { background: rgba(25, 130, 196, 0.2); }  /* blue */
-    100% { background: rgba(106, 76, 147, 0.2); }  /* purple */
-}
-
 /* Bubble Toggle Button */
-#bubbleToggle {
+#themeToggle {
     background: linear-gradient(45deg, var(--purple), var(--blue));
-    color: white;
+    color: rgb(10, 10, 10);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -367,47 +346,9 @@ ul li::before {
     transition: all 0.3s ease;
 }
 
-#bubbleToggle:hover {
+#themeToggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.bubble-container.hidden {
-    display: none;
-}
-
-.bubble-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.bubble-container.hidden {
-    display: none;
-}
-
-.bubble {
-    position: absolute;
-    bottom: -20px;
-    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: float linear forwards;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
-        opacity: 0.3;
-    }
-    100% {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
 }
 
 .disclaimer-banner {
