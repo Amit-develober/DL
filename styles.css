@@ -73,14 +73,8 @@ body {
 }
 
 @keyframes headerBackground {
-    0%, 45% {
-        background-image: url('Scan.jpg');
-    }
-    50%, 95% {
-        background-image: url('Scan1.jpg');
-    }
-    100% {
-        background-image: url('Scan.jpg');
+    0%, 100% {
+        background-image: url('Scan.png');
     }
 }
 
@@ -94,7 +88,7 @@ body {
 /* Header Styles */
 header {
     padding: 20px;
-    background: url('Scan.jpg') center/cover no-repeat;
+    background: url('Scan.png') center/cover no-repeat;
     animation: headerBackground 4s infinite;
     background-size: cover;
     background-position: center;
