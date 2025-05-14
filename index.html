@@ -6,6 +6,9 @@
   <title>Scan Digital Library</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Sliding Panel Styles */
+
+
     @keyframes curveText {
       0% { transform: scale(1); }
       50% { transform: scale(1.02) rotate(1deg); }
@@ -58,7 +61,7 @@
     <div class="container">
       <h1 style="font-size: 3.0em; -webkit-text-stroke: 2px #000000; color: white;">
         📖
-        <span class="curved-text">SCAN S.B.V Digital Library</span>
+        <span class="curved-text">SCAN SBV Digital Library</span>
       </h1>
       <div class="header-controls">
         <a href="e-resources.html" class="highlight-link" style="text-decoration: none; margin-right: 15px; font-size: 1.2em;">
@@ -86,6 +89,7 @@
           <button class="font-size-btn" onclick="changeFontSize('decrease')">-</button>
           <button class="font-size-btn" onclick="changeFontSize('increase')">+</button>
         </div>
+
       </div>
     </div>
   </header>
@@ -199,6 +203,8 @@
   <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
   <button id="scrollTopBtn" title="Go to top">↑</button>
 
+
+
   <script>
     const searchBar = document.getElementById("searchBar");
     const searchBtn = document.getElementById("searchBtn");
@@ -244,6 +250,8 @@
         root.style.fontSize = (currentFontSize - 1) + 'px';
       }
     }
+
+
   </script>
 </body>
 </html>
