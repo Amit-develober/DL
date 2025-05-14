@@ -9,8 +9,14 @@
 <body class="dark-mode">
     <header>
         <div class="container">
-            <h1><span style="font-size: 2.0em;">🤖</span> Artificial Intelligence</h1>
-            <a href="index.html" class="back-button" style="background-color: #000000; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+            <h1><span style="font-size: 3.0em;">🤖</span> Artificial Intelligence</h1>
+            <div class="header-controls">
+                <a href="index.html" class="back-button" style="background-color:rgb(0, 255, 42); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+                <div class="font-size-controls">
+                    <button class="font-size-btn" onclick="changeFontSize('decrease')">-</button>
+                    <button class="font-size-btn" onclick="changeFontSize('increase')">+</button>
+                </div>
+            </div>
         </div>
     </header>
     <div class="disclaimer-banner">
@@ -38,5 +44,16 @@
         </div>
     </main>
     <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
+<script>
+    function changeFontSize(action) {
+      const root = document.documentElement;
+      const currentFontSize = parseFloat(getComputedStyle(root).fontSize);
+      if (action === 'increase') {
+        root.style.fontSize = (currentFontSize + 1) + 'px';
+      } else if (action === 'decrease') {
+        root.style.fontSize = (currentFontSize - 1) + 'px';
+      }
+    }
+  </script>
 </body>
 </html>
