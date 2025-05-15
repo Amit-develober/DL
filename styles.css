@@ -689,12 +689,12 @@ ul li::before {
     color: white;
     border: none;
     padding: 0.8rem;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -803,8 +803,10 @@ ul li::before {
         font-size: var(--small-text);
         padding: var(--spacing-xs);
     }
-    pointer-events: none;
-    animation: floatEmoji 15s linear infinite;
-    opacity: 0.3;
-    z-index: -1;
-}
+    
+    .emoji {
+        pointer-events: none;
+        animation: floatEmoji 15s linear infinite;
+        opacity: 0.3;
+        z-index: -1;
+    }

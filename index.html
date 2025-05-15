@@ -4,10 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scan Digital Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* Apply Comic Relief font to all text */
+    body {
+      font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, .curved-text {
+      font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+    }
+
+    input, select, button, option {
+      font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+    }
+
+    .card-description, .disclaimer-banner p, .credit, a {
+      font-weight: 700;
+    }
+
+    .search-container input::placeholder {
+      font-weight: 700;
+    }
+
+    #categorySelect option {
+      font-weight: 700;
+    }
+
     /* Sliding Panel Styles */
 
+    /* Add emoji size control for header */
+    header .emoji {
+      font-size: 2.0em;
+      display: inline-block;
+      vertical-align: middle;
+    }
 
     @keyframes curveText {
       0% { transform: scale(1); }
@@ -17,18 +54,84 @@
     .curved-text {
       animation: curveText 3s infinite ease-in-out;
       display: inline-block;
+      font-weight: 700;
     }
     .map-link {
       background: #4CAF50;
       color: white;
-      padding: 8px 15px;
+      padding: 8px 12px;
       border-radius: 5px;
       text-decoration: none;
-      margin-right: 15px;
+      margin-right: 10px;
       transition: background 0.3s;
+      font-size: 0.9em;
+      white-space: nowrap;
     }
     .map-link:hover {
       background: #45a049;
+    }
+    .highlight-link {
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      position: relative;
+    }
+    .search-container input[type="text"] {
+      width: 300px;
+      padding: 12px 45px 12px 15px;
+      border: 2px solid #4CAF50;
+      background: white;
+      color: #333;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    .search-container input[type="text"]:focus {
+      border-color: #45a049;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+    }
+    .search-container input[type="text"]::placeholder {
+      color: #999;
+    }
+    #searchBtn {
+      position: absolute;
+      right: 5px;
+      height: 32px;
+      width: 32px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #searchBtn:hover {
+      background: #45a049;
+    }
+    #searchBtn .emoji {
+      font-size: 1.2em;
+    }
+    #categorySelect {
+      width: 250px;
+      padding: 12px 15px;
+      border: 2px solid #4CAF50;
+      background: white;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+      margin-right: 15px;
+    }
+    #categorySelect:focus {
+      border-color: #45a049;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
     }
     header {
       background-image: url('Scan.png');
@@ -54,25 +157,62 @@
       position: relative;
       z-index: 2;
     }
+    .font-size-controls {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .font-size-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1.2rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .font-size-btn:hover {
+      background: #45a049;
+    }
+    .back-button {
+      padding: 8px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #45a049;
+    }
+    header h1 {
+      font-weight: 700;
+    }
+    .header-controls a, .header-controls select {
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1 style="font-size: 3.0em; -webkit-text-stroke: 2px #000000; color: white;">
-        📖
+      <h1 style="font-size: 3.0em; -webkit-text-stroke: 2px #000000; color: white; font-weight: 900;">
+        <span class="emoji">📖</span>
         <span class="curved-text">SCAN SBV Digital Library</span>
       </h1>
       <div class="header-controls">
-        <a href="e-resources.html" class="highlight-link" style="text-decoration: none; margin-right: 15px; font-size: 1.2em;">
-          📚 E-resources
+        <a href="e-resources.html" class="highlight-link" style="text-decoration: none; margin-right: 10px;">
+          <span class="emoji">📚</span> E-resources
         </a>
         <a href="https://www.oldmapsonline.org/" target="_blank" class="map-link">
-          🗺️ Historical Maps
+          <span class="emoji">🗺️</span> Historical Maps
         </a>
         <div class="search-container">
-          <input type="text" id="searchBar" placeholder="Search resources...">
-          <button id="searchBtn">🔍</button>
+          <input type="text" id="searchBar" placeholder="Search resources.....">
+          <button id="searchBtn"><span class="emoji">🔍</span></button>
         </div>
         <select id="categorySelect">
           <option value="all">📝 All Categories</option>
