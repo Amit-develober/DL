@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Scan Digital Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,9 @@
     body {
       font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
       font-weight: 700;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     h1, h2, h3, .curved-text {
@@ -44,6 +47,19 @@
       font-size: 2.0em;
       display: inline-block;
       vertical-align: middle;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      float: none;
+    }
+
+    .map-link .emoji, 
+    .highlight-link .emoji {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+      line-height: 1;
+      float: none;
     }
 
     @keyframes curveText {
@@ -194,9 +210,224 @@
     .header-controls a, .header-controls select {
       font-weight: 600;
     }
+
+    /* Mobile-specific header and emoji styles */
+    @media screen and (max-width: 768px) {
+      header h1 {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 10px !important;
+      }
+
+      header .emoji {
+        position: static !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        float: none !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+      }
+
+      .curved-text {
+        position: static !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        float: none !important;
+        vertical-align: middle !important;
+      }
+
+      .map-link,
+      .highlight-link {
+        position: static !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        float: none !important;
+        margin: 5px 0 !important;
+      }
+
+      .map-link .emoji,
+      .highlight-link .emoji {
+        position: static !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        float: none !important;
+        margin-right: 4px !important;
+      }
+
+      .header-controls {
+        position: static !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        float: none !important;
+      }
+    }
+
+    /* Improved touch targets for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .card, button, select, input[type="text"] {
+        min-height: 44px; /* Minimum touch target size */
+      }
+
+      .card a {
+        padding: 12px;
+        display: block;
+      }
+
+      .font-size-btn {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    /* Base styles improvements */
+    .container {
+      padding: 0 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      transition: transform 0.2s ease;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      padding: 25px;
+      min-height: 320px;
+      width: 100%;
+      height: 175px;
+      width: 350px;
+      margin: 0 auto;
+    }
+
+    .card:active {
+      transform: scale(0.98);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Improved card grid layout */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 350px);
+      justify-content: center;
+      gap: 80px;
+      padding: 20px;
+    }
+
+    /* Emoji styles */
+    .emoji {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    /* Update mobile popup styles */
+    .mobile-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.95);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      z-index: 1000;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      font-size: 1.4em;
+      max-width: 90%;
+      width: 320px;
+      backdrop-filter: blur(5px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-popup .emoji {
+      font-size: 3em;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .mobile-popup .message {
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .mobile-popup .close-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+      margin-top: 15px;
+    }
+
+    .mobile-popup .close-btn:hover {
+      background: #45a049;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      backdrop-filter: blur(3px);
+    }
+
+        /* Card content improvements */    .card h2 {      font-size: 1.5em;      margin-top: 0;      margin-bottom: 15px;      color: #2c3e50;      font-weight: 900;    }        .card-description {      font-size: 1.1em;      margin-bottom: 15px;      color: #34495e;      font-weight: 900;    }        .card ul {      padding-left: 20px;      font-weight: 900;    }        .card li {      margin-bottom: 8px;      color: #505a65;      font-weight: 900;    }
   </style>
 </head>
 <body>
+  <!-- Update mobile popup structure -->
+  <div id="popupOverlay" class="popup-overlay"></div>
+  <div id="mobilePopup" class="mobile-popup">
+    <span class="emoji">🖥️</span>
+    <div class="message">For the best experience, please open this website in Desktop Mode</div>
+    <button class="close-btn" onclick="closePopup()">Got it!</button>
+  </div>
   <header>
     <div class="container">
       <h1 style="font-size: 3.0em; -webkit-text-stroke: 2px #000000; color: white; font-weight: 900;">
@@ -242,99 +473,88 @@
 
   <main class="container">
     <div class="card-grid">
-      <div class="card science">
-        <a href="science.html" style="text-decoration: none; color: inherit;">
-          <h2> Science</h2>
-          <p class="card-description">Explore scientific concepts and resources here.</p>
-          <ul>
-            <li>Physics Notes</li>
-            <li>Chemistry Lab Manual</li>
-            <li>Biology Resources</li>
-            <li>Science Projects</li>
-          </ul>
+      <div class="card science" style="background-image: url('Science.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="science.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900;"> Science</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900;">Explore scientific concepts and resources here.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card generalKnowledge">
-        <a href="general-knowledge.html" style="text-decoration: none; color: inherit;">
-          <h2> General Knowledge</h2>
-          <p class="card-description">Stay updated with facts and trivia.</p>
-          <ul>
-            <li>Current Affairs</li>
-            <li>World History</li>
-            <li>Geography Facts</li>
-            <li>Quiz Practice</li>
-          </ul>
+      <div class="card generalKnowledge" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="general-knowledge.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900;"> General Knowledge</h2>
+                          <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900;">Stay updated with facts and trivia.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card maths">
-        <a href="maths.html" style="text-decoration: none; color: inherit;">
-          <h2> Maths</h2>
-          <p class="card-description">Practice maths with problems and guides.</p>
-          <ul>
-            <li>Algebra Solutions</li>
-            <li>Geometry Practice</li>
-            <li>Calculus Notes</li>
-            <li>Math Formulas</li>
-          </ul>
+      <div class="card maths" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="maths.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900;"> Maths</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Practice maths with problems and guides.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card motivation">
-        <a href="motivation.html" style="text-decoration: none; color: inherit;">
-          <h2> Motivation</h2>
-          <p class="card-description">Read inspiring quotes and success stories.</p>
-          <ul>
-            <li>Success Stories</li>
-            <li>Daily Quotes</li>
-            <li>Study Tips</li>
-            <li>Time Management</li>
-          </ul>
+      <div class="card motivation" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="motivation.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Motivation</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Read inspiring quotes and success stories.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card ai">
-        <a href="artificial-intelligence.html" style="text-decoration: none; color: inherit;">
-          <h2> Artificial Intelligence</h2>
-          <p class="card-description">Discover the world of AI and its uses.</p>
-          <ul>
-            <li>Machine Learning Basics</li>
-            <li>AI Applications</li>
-            <li>Neural Networks</li>
-            <li>AI Projects</li>
-          </ul>
+      <div class="card ai" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="artificial-intelligence.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Artificial Intelligence</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Discover the world of AI and its uses.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card pyqs">
-        <a href="previous-year-questions.html" style="text-decoration: none; color: inherit;">
-          <h2> Previous Year Questions</h2>
-          <p class="card-description">Access past exam papers and practice questions.</p>
-          <ul>
-            <li>Past Papers Collection</li>
-            <li>Solved Examples</li>
-            <li>Answer Keys</li>
-            <li>Practice Sets</li>
-          </ul>
+      <div class="card pyqs" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="previous-year-questions.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Previous Year Questions</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Access past exam papers and practice questions.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+              <li>Past Papers Collection</li>
+              <li>Solved Examples</li>
+              <li>Answer Keys</li>
+              <li>Practice Sets</li>
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card questionBank">
-        <a href="question-bank.html" style="text-decoration: none; color: inherit;">
-          <h2> Question Bank</h2>
-          <p class="card-description">Comprehensive collection of subject-wise questions.</p>
-          <ul>
-            <li>Subject-wise Questions</li>
-            <li>Topic Tests</li>
-            <li>Mock Papers</li>
-            <li>Solutions Guide</li>
-          </ul>
+      <div class="card questionBank" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="question-bank.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Question Bank</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Comprehensive collection of subject-wise questions.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
-      <div class="card ncertBooks">
-        <a href="https://ncert.nic.in/textbook.php" target="_blank" style="text-decoration: none; color: inherit;">
-          <h2> NCERT Books</h2>
-          <p class="card-description">Click Here For Books.</p>
-          <ul>
-            <li>Class-wise Books</li>
-            <li>NCERT Original Books</li>
-            <li>Class I TO XII</li>
-          </ul>
+      <div class="card ncertBooks" style="background-image: url('Scan.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
+        <a href="https://ncert.nic.in/textbook.php" target="_blank" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+          <div style="padding: 15px; height: 100%;">
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> NCERT Books</h2>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Click Here For Books.</p>
+            <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
+            </ul>
+          </div>
         </a>
       </div>
     </div>
@@ -342,8 +562,6 @@
 
   <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
   <button id="scrollTopBtn" title="Go to top">↑</button>
-
-
 
   <script>
     const searchBar = document.getElementById("searchBar");
@@ -391,7 +609,25 @@
       }
     }
 
+    // Update mobile detection and popup script
+    function checkIfMobile() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        const popup = document.getElementById('mobilePopup');
+        const overlay = document.getElementById('popupOverlay');
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+      }
+    }
 
+    function closePopup() {
+      const popup = document.getElementById('mobilePopup');
+      const overlay = document.getElementById('popupOverlay');
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+
+    // Run mobile check when page loads
+    window.addEventListener('load', checkIfMobile);
   </script>
 </body>
 </html>
