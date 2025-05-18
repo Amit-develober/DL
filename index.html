@@ -173,26 +173,7 @@
       position: relative;
       z-index: 2;
     }
-    .font-size-controls {
-      display: inline-block;
-      margin-left: 10px;
-    }
-    .font-size-btn {
-      width: 32px;
-      height: 32px;
-      font-size: 1.2rem;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .font-size-btn:hover {
-      background: #45a049;
-    }
+
     .back-button {
       padding: 8px 20px;
       background: #4CAF50;
@@ -421,6 +402,12 @@
   </style>
 </head>
 <body>
+  <!-- Taskbar -->
+  <div class="taskbar" style="background: #4CAF50; padding: 8px 15px; text-align: left; position: sticky; top: 0; z-index: 1000;">
+    <a href="https://amit-develober.github.io/DL/" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+      <span class="emoji" style="font-size: 1.2em;">🏠</span> Home
+    </a>
+  </div>
   <!-- Update mobile popup structure -->
   <div id="popupOverlay" class="popup-overlay"></div>
   <div id="mobilePopup" class="mobile-popup">
@@ -457,19 +444,14 @@
           <option value="ncertBooks">📚NCERT Books</option>
           <option value="iqGames">🧩IQ Games</option>
         </select>
-        <div class="font-size-controls">
-          <button class="font-size-btn" onclick="changeFontSize('decrease')">-</button>
-          <button class="font-size-btn" onclick="changeFontSize('increase')">+</button>
-        </div>
+
 
       </div>
     </div>
   </header>
 
   <div class="disclaimer-banner">
-    <p>
-      All books and resources available in this library are completely free .
-    </p>
+    <p>Welcome to SCAN SBV Digital Library - Your free gateway to knowledge! All resources are provided free of cost for educational purposes. Happy learning! 📚</p>
   </div>
 
   <main class="container">
@@ -525,10 +507,10 @@
         </a>
       </div>
       <div class="card pyqs" style="background-image: url('P.png'); background-size: cover; background-position: center; position: relative; width: 350px; height: 175px;">
-        <a href="previous-year-questions.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+        <a href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Previous Year Questions</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Access past exam papers and practice questions.</p>
+            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Time To Goal 100 Outof 100 .</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
