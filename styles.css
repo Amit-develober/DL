@@ -217,10 +217,22 @@ select {
 /* Card Styles */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--spacing-lg) * 1.5);
     margin: var(--spacing-lg) 0;
     padding: var(--spacing-lg) 0;
+}
+
+@media (max-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
