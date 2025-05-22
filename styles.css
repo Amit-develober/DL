@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
 
 :root {
     --background-color: #e6e6e6;
@@ -64,6 +64,11 @@ body {
     line-height: 1.6;
     width: 100%;
     box-sizing: border-box;
+}
+
+/* Make all text elements bold by default */
+p, span, a, li, div, button, input, select, textarea, label, td, th {
+    font-weight: bold !important;
 }
 
 
@@ -689,9 +694,14 @@ ul li::before {
     }
     
     .book-list {
-        grid-template-columns: repeat(auto-fill, minmax(clamp(250px, 40vw, 350px), 1fr));
-        gap: var(--spacing-md);
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+}
 }
 
 @media (max-width: 768px) {
@@ -719,8 +729,21 @@ ul li::before {
     }
     
     .book-item {
-        padding: var(--spacing-sm);
-    }
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
     
     h1 {
         font-size: calc(var(--base-font-size) * 1.6);
