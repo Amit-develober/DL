@@ -16,6 +16,7 @@
       padding: 0;
       box-sizing: border-box;
       font-size: 16px;
+      font-weight: bold;
     }
 
     h1, h2, h3, .curved-text {
@@ -26,6 +27,7 @@
 
     input, select, button, option {
       font-family: 'Comic Neue', system-ui, -apple-system, sans-serif;
+      font-weight: bold;
     }
 
     .card-description, .disclaimer-banner p, .credit, a {
@@ -38,6 +40,11 @@
 
     #categorySelect option {
       font-weight: 700;
+    }
+    
+    /* Make all text elements bold */
+    p, span, a, li, div, button, input, select, textarea, label, td, th {
+      font-weight: bold !important;
     }
 
     /* Sliding Panel Styles */
@@ -68,7 +75,7 @@
       100% { transform: scale(1); }
     }
     .curved-text {
-      animation: curveText 3s infinite ease-in-out;
+      /* animation: curveText 3s infinite ease-in-out; */
       display: inline-block;
       font-weight: 400;
     }

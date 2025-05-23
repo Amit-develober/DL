@@ -66,8 +66,14 @@ body {
     box-sizing: border-box;
 }
 
-/* Make all text elements bold by default */
 p, span, a, li, div, button, input, select, textarea, label, td, th {
+  font-weight: bold !important;
+}p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+    font-weight: bold !important;
+}p, span, a, li, div, button, input, select, textarea, label, td, th, h1, h2, h3, h4, h5, h6 {
+    font-weight: bold !important;
+}/* Make all text elements bold by default */
+p, span, a, li, div, button, input, select, textarea, label, td, th, h1, h2, h3, h4, h5, h6 {
     font-weight: bold !important;
 }
 
