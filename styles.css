@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap');
 
 :root {
     --background-color: #e6e6e6;
@@ -53,7 +53,7 @@ body {
     padding: 0;
     min-height: 100vh;
     background: #ffffff;
-    font-family: 'Comic Relief', Arial, sans-serif;
+    font-family: 'Noto Sans', Arial, sans-serif;
     transition: all 0.3s ease;
     padding-bottom: clamp(40px, 6vh, 80px);
     font-weight: bold;
@@ -146,9 +146,10 @@ header {
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     margin-bottom: clamp(1rem, 2vw, 2rem);
-    font-size: var(--xl-text);
+    font-size: var(--xl-text) !important;
     line-height: 1.2;
     transition: font-size 0.3s ease;
+    text-transform: uppercase;
 }
 
 .header-controls {
@@ -289,6 +290,7 @@ select {
     margin-bottom: 10px;
     font-weight: bold;
     text-shadow: var(--text-shadow);
+    font-size: var(--xl-text) !important;
 }
 
 .card-content {
