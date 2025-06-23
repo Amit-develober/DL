@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Scan Digital Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +17,25 @@
       font-weight: bold;
     }
 
-    h1, h2, h3, .curved-text {
+    h1,
+    h2,
+    h3,
+    .curved-text {
       font-size: 1.0em;
       font-weight: 900;
     }
 
-    input, select, button, option {
+    input,
+    select,
+    button,
+    option {
       font-weight: bold;
     }
 
-    .card-description, .disclaimer-banner p, .credit, a {
+    .card-description,
+    .disclaimer-banner p,
+    .credit,
+    a {
       font-weight: 700;
     }
 
@@ -36,9 +46,20 @@
     #categorySelect option {
       font-weight: 700;
     }
-    
+
     /* Make all text elements bold */
-    p, span, a, li, div, button, input, select, textarea, label, td, th {
+    p,
+    span,
+    a,
+    li,
+    div,
+    button,
+    input,
+    select,
+    textarea,
+    label,
+    td,
+    th {
       font-weight: bold !important;
     }
 
@@ -55,7 +76,7 @@
       float: none;
     }
 
-    .map-link .emoji, 
+    .map-link .emoji,
     .highlight-link .emoji {
       display: inline-block;
       vertical-align: middle;
@@ -65,15 +86,25 @@
     }
 
     @keyframes curveText {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.02) rotate(1deg); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02) rotate(1deg);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
+
     .curved-text {
       /* animation: curveText 3s infinite ease-in-out; */
       display: inline-block;
       font-weight: 400;
     }
+
     .map-link {
       background: #4CAF50;
       color: white;
@@ -85,19 +116,23 @@
       font-size: 0.9em;
       white-space: nowrap;
     }
+
     .map-link:hover {
       background: #45a049;
     }
+
     .highlight-link {
       font-size: 0.9em;
       white-space: nowrap;
     }
+
     .search-container {
       display: flex;
       align-items: center;
       margin-right: 14px;
       position: relative;
     }
+
     .search-container input[type="text"] {
       width: 290px;
       padding: 12px 45px 12px 15px;
@@ -108,14 +143,16 @@
       transition: all 0.3s ease;
       outline: none;
     }
+
     .search-container input[type="text"]:focus {
       border-color: #45a049;
       box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
     }
-    
+
     .search-container input[type="text"]::placeholder {
       color: #999;
     }
+
     #searchBtn {
       position: absolute;
       right: 5px;
@@ -130,12 +167,15 @@
       align-items: center;
       justify-content: center;
     }
+
     #searchBtn:hover {
       background: #45a049;
     }
+
     #searchBtn .emoji {
       font-size: 1.2em;
     }
+
     #categorySelect {
       width: 250px;
       padding: 12px 15px;
@@ -148,10 +188,12 @@
       transition: all 0.3s ease;
       margin-right: 15px;
     }
+
     #categorySelect:focus {
       border-color: #45a049;
       box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
     }
+
     header {
       background-image: url('Scan.png');
       background-size: cover;
@@ -164,7 +206,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     header::before {
       content: '';
       position: absolute;
@@ -175,7 +217,7 @@
       background: rgba(255, 255, 255, 0.2);
       z-index: 1;
     }
-    
+
     header .container {
       position: relative;
       z-index: 2;
@@ -189,13 +231,17 @@
       text-decoration: none;
       transition: background 0.3s;
     }
+
     .back-button:hover {
       background: #45a049;
     }
+
     header h1 {
       font-weight: 700;
     }
-    .header-controls a, .header-controls select {
+
+    .header-controls a,
+    .header-controls select {
       font-weight: 600;
     }
 
@@ -265,8 +311,13 @@
 
     /* Improved touch targets for mobile */
     @media (hover: none) and (pointer: coarse) {
-      .card, button, select, input[type="text"] {
-        min-height: 44px; /* Minimum touch target size */
+
+      .card,
+      button,
+      select,
+      input[type="text"] {
+        min-height: 44px;
+        /* Minimum touch target size */
       }
 
       .card a {
@@ -289,9 +340,13 @@
 
     .card {
       transition: transform 0.2s ease;
-      border-radius: 8px;
+      border-radius: 70px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      border: 4px solid #ffffff;
+      background-clip: border-box;
+      background-origin: border-box;
+      background-image: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
       padding: 25px;
       min-height: 320px;
       width: 100%;
@@ -306,7 +361,7 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
 
     #scrollTopBtn {
@@ -323,7 +378,7 @@
       cursor: pointer;
       display: none;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     /* Improved card grid layout */
@@ -426,16 +481,45 @@
       backdrop-filter: blur(3px);
     }
 
-        /* Card content improvements */    .card h2 {      font-size: 1.5em;      margin-top: 0;      margin-bottom: 15px;      color: #2c3e50;      font-weight: 900;    }        .card-description {      font-size: 1.1em;      margin-bottom: 15px;      color: #34495e;      font-weight: 900;    }        .card ul {      padding-left: 20px;      font-weight: 900;    }        .card li {      margin-bottom: 8px;      color: #505a65;      font-weight: 900;    }
+    /* Card content improvements */
+    .card h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-weight: 900;
+    }
+
+    .card-description {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      color: #34495e;
+      font-weight: 900;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      font-weight: 900;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+      color: #505a65;
+      font-weight: 900;
+    }
   </style>
 </head>
+
 <body>
   <!-- Taskbar -->
-  <div class="taskbar" style="background: #4CAF50; padding: 4px 10px; text-align: left; position: sticky; top: 0; z-index: 1000; display: flex; gap: 10px;">
-    <a href="https://amit-develober.github.io/DL/" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+  <div class="taskbar"
+    style="background: linear-gradient(90deg, #4CAF50 0%, #2196F3 100%); padding: 4px 10px; text-align: left; position: sticky; top: 0; z-index: 1000; display: flex; gap: 10px;">
+    <a href="index.html"
+      style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
       <span class="emoji" style="font-size: 1.2em;">🏠</span> Home
     </a>
-    <a href="about.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+    <a href="about.html"
+      style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
       <span class="emoji" style="font-size: 1.2em;">ℹ️</span> About
     </a>
   </div>
@@ -450,15 +534,18 @@
     <div class="container">
       <h1 style="font-size: 3.0em; -webkit-text-stroke: 2px #000000; color: white; font-weight: 900;">
         <span class="emoji">📖</span>
-        <span class="curved-text" style="font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"><strong style="font-weight: 900;">SCAN SBV Digital Library</strong></span>
+        <span class="curved-text" style="font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"><strong
+            style="font-weight: 900;">SCAN SBV Digital Library</strong></span>
       </h1>
       <div class="header-controls">
-        <a href="e-resources.html" class="highlight-link" style="text-decoration: none; margin-right: 10px;">
+        <a href="e-resources.html" class="highlight-link"
+          style="text-decoration: none; margin-right: 10px; border: 2px solid #ffffff; border-radius: 6px; padding: 6px 14px;">
           <span class="emoji">📚</span> E-resources
         </a>
-         <a href="https://www.oldmapsonline.org/" class="highlight-link" style="text-decoration: none; margin-right: 10px;">
+        <a href="https://www.oldmapsonline.org/" class="highlight-link"
+          style="text-decoration: none; margin-right: 10px; border: 2px solid #ffffff; border-radius: 6px; padding: 6px 14px;">
           <span class="emoji">🗺️</span> Historical Maps
-        </a> 
+        </a>
         <div class="search-container">
           <input type="text" id="searchBar" placeholder="Search resources.....">
           <button id="searchBtn"><span class="emoji">🔍</span></button>
@@ -482,96 +569,130 @@
   </header>
 
   <div class="disclaimer-banner" style="padding: 8px; margin: 5px 0;">
-    <p style="font-size: 0.9em;">Welcome to SCAN SBV Digital Library - Your free gateway to knowledge! All resources are provided free of cost for educational purposes. Happy learning! 📚</p>
+    <p style="font-size: 0.9em;">Welcome to SCAN SBV Digital Library - Your free gateway to knowledge! All resources are
+      provided free of cost for educational purposes. Happy learning! 📚</p>
   </div>
 
   <main class="container">
     <div class="card-grid">
-      <div class="card science" style="background-image: url('Science.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card science"
+        style="background-image: url('Science.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="science.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
-            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;"> Science</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900; font-size: 0.9em;">Explore scientific concepts and resources here.</p>
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;">
+              Science</h2>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900; font-size: 0.9em;">
+              Explore scientific concepts and resources here.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card generalKnowledge" style="background-image: url('GK.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card generalKnowledge"
+        style="background-image: url('GK.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="general-knowledge.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
-            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;"> General Knowledge</h2>
-                          <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900; font-size: 0.9em;">Stay updated with facts and trivia.</p>
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;">
+              General Knowledge</h2>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: 900; font-size: 0.9em;">
+              Stay updated with facts and trivia.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card maths" style="background-image: url('MA.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card maths"
+        style="background-image: url('MA.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="maths.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
-            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;"> Maths</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Practice maths with problems and guides.</p>
+            <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 900; font-size: 2.0em;">
+              Maths</h2>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Practice maths
+              with problems and guides.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card motivation" style="background-image: url('Mo.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card motivation"
+        style="background-image: url('Mo.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="motivation.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Motivation</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Read inspiring quotes and success stories.</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Read inspiring
+              quotes and success stories.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card ai" style="background-image: url('A.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
-        <a href="artificial-intelligence.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+      <div class="card ai"
+        style="background-image: url('A.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+        <a href="artificial-intelligence.html"
+          style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Artificial Intelligence</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Discover the world of AI and its uses.</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Discover the
+              world of AI and its uses.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card pyqs" style="background-image: url('P.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
-        <a href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+      <div class="card pyqs"
+        style="background-image: url('P.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+        <a href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank"
+          style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Previous Year Questions</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Time To Goal 100 Outof 100 .</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Time To Goal 100
+              Outof 100 .</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card questionBank" style="background-image: url('b.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card questionBank"
+        style="background-image: url('b.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="question-bank.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> Question Bank</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Comprehensive collection of subject-wise questions.</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Comprehensive
+              collection of subject-wise questions.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card ncertBooks" style="background-image: url('N.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
-        <a href="https://ncert.nic.in/textbook.php" target="_blank" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
+      <div class="card ncertBooks"
+        style="background-image: url('N.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+        <a href="https://ncert.nic.in/textbook.php" target="_blank"
+          style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> NCERT Books</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Click Here For Books.</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Click Here For
+              Books.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
         </a>
       </div>
-      <div class="card iqGames" style="background-image: url('IQ.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
+      <div class="card iqGames"
+        style="background-image: url('IQ.png'); background-size: cover; background-position: center; position: relative; width: 280px; height: 140px;">
         <a href="iq-games.html" style="text-decoration: none; color: inherit; position: relative; z-index: 2;">
           <div style="padding: 15px; height: 100%;">
             <h2 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);"> IQ Games</h2>
-            <p class="card-description" style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Enhance your cognitive skills with brain-training games.</p>
+            <p class="card-description"
+              style="color: black; text-shadow: 1px 1px 3px rgba(255,255,255,0.8); font-weight: bold;">Enhance your
+              cognitive skills with brain-training games.</p>
             <ul style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             </ul>
           </div>
@@ -580,7 +701,8 @@
     </div>
   </main>
 
-  <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
+  <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">
+    SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
   <button id="scrollTopBtn" title="Go to top">↑</button>
 
   <script>
@@ -602,7 +724,7 @@
       });
     }
 
-    window.onscroll = function() {
+    window.onscroll = function () {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         scrollTopBtn.style.display = "block";
       } else {
@@ -610,7 +732,7 @@
       }
     };
 
-    scrollTopBtn.addEventListener("click", function() {
+    scrollTopBtn.addEventListener("click", function () {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     });
@@ -650,4 +772,5 @@
     window.addEventListener('load', checkIfMobile);
   </script>
 </body>
+
 </html>
