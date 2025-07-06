@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Digital Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Apply Comic Relief font to all text */
+        body {
+            font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+            font-weight: 700;
+        }
+
+        input, select, button {
+            font-family: 'Comic Relief', system-ui, -apple-system, sans-serif;
+            font-weight: 700;
+        }
+
+        .book-item a, .book-item p, .disclaimer-banner p, .credit {
+            font-weight: 700;
+        }
+
+        .large-text {
+            font-weight: 700;
+        }
+        /* Add emoji size control for header */
+        header .emoji {
+            font-size: 1.5em;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        header h1 {
+            font-weight: 700;
+        }
+        .header-controls a {
+            font-weight: 600;
+        }
+        h2 {
+            font-weight: 700;
+        }
+        .font-size-controls {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .font-size-btn {
+            width: 28px;
+            height: 28px;
+            font-size: 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .font-size-btn:hover {
+            background: #45a049;
+        }
+        .back-button {
+            padding: 8px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Taskbar -->
+    <div class="taskbar" style="background: #4CAF50; padding: 8px 15px; text-align: left; position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">🏠</span> Home
+        </a>
+        <a href="about.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">ℹ️</span> About
+          </a>
+    </div>
+    <header>
+        <div class="container">
+           <h1 style="-webkit-text-stroke: 2px #000000; color: white; font-weight: 900; text-shadow: 0 0 3px #000; letter-spacing: 0.5px;"><span class="emoji">🔬</span> <strong>Science</strong></h1>
+            <div class="header-controls">
+                <a href="index.html" class="back-button" style="background-color:rgb(80, 184, 97); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-bottom: 20px;">← Back to Home</a>
+                
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="book-list">
+            <div class="book-item">
+                <h2 style="color: black;">General Science</h2>
+                <ul>
+                    <li>
+                        <a href=" https://archive.org/details/the-science-book-by-dk-publishing-z-lib.org/mode/2up " target="_blank">
+                            <span class="large-text"> The Science Book by DK Publishing </span>
+                        </a>
+                    </li>
+                    <div class="book-item">
+                <h2 style="color: black;">Earth & Space Sciences</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.as.utexas.edu/~elr/Astronomy-LR.pdf" target="_blank">
+                            <span class="large-text">Astronomy by Andrew Fraknoi, David Morrison, and Sidney C. Wolff</span>
+                        </a>
+                        <p style="color: #000000; font-style: italic; margin-top: 5px;">Note: This is a large file, please wait for it to load.</p>
+                    </li>
+                </ul>
+                  <div class="book-item">
+                <h2 style="color: black;">Physics</h2>
+                <ul>
+                    <li>
+                        <a href="https://lehman.edu/faculty/anchordoqui/crowell.pdf" target="_blank">
+                            <span class="large-text">Conceptual Physics by Benjamin Crowell</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="book-item">
+                <h2 style="color: black;">Chemistry</h2>
+                <ul>
+                    <li>
+                        <a href="https://archive.org/details/IntroductionToOrganicChemistry5thEditionWilliamBrown/mode/2up" target="_blank">
+                            <span class="large-text">Organic Chemistry by William H. Brown</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tech.chemistrydocs.com/Books/Analytical/Modern-Analytical-Chemistry-by-David-Harvey.pdf" target="_blank">
+                            <span class="large-text">Modern Analytical Chemistry by David Harvey</span>
+                        </a>
+                    </li>
+                </ul>   
+        </div>
+    </main>
+    <div class="credit" style="text-align: center; padding: 10px 0; font-size: 1.1rem; color: #2c3e50; margin: 10px 0;">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
+<script>
+    function changeFontSize(action) {
+      const root = document.documentElement;
+      const currentFontSize = parseFloat(getComputedStyle(root).fontSize);
+      if (action === 'increase') {
+        root.style.fontSize = (currentFontSize + 1) + 'px';
+      } else if (action === 'decrease') {
+        root.style.fontSize = (currentFontSize - 1) + 'px';
+      }
+    }
+  </script>
+</body>
+</html>

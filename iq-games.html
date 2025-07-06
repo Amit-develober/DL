@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Digital Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .game-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 70px;
+            padding: 15px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: var(--card-min-width);
+            text-align: center;
+            text-decoration: none;
+            color: #000000;
+            border: 4px solid #fff;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .game-card .emoji {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Taskbar -->
+    <div class="taskbar" style="background: #4CAF50; padding: 8px 15px; text-align: left; position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">🏠</span> Home
+        </a>
+        <a href="about.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">ℹ️</span> About
+          </a>
+    </div>
+    <header>
+        <div class="container">
+            <h1 style="-webkit-text-stroke: 2px #000000; color: white; font-weight: 900;"><span class="emoji">🎮</span> <strong>IQ Games</strong></h1>
+            <div class="header-controls">
+                <a href="index.html" class="back-button" style="background-color: #4CAF50; color: white; padding: clamp(8px, 2vw, 15px) clamp(15px, 3vw, 25px); text-decoration: none; border-radius: 5px; display: inline-block; margin-bottom: clamp(10px, 3vh, 25px); font-size: var(--small-text);">← Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="game-cards">
+            <a href="https://amit-develober.github.io/mt/" class="game-card" style="background: url('image/Maths.png') center/cover no-repeat; color: #000000; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);">
+                <span class="emoji"> ∞︎︎ + ∞︎︎ = ?? </span>
+                <h2 style="color: #000000;">Maths Master</h2>
+                <p>Test and improve your Maths </p>
+            </a>
+            <a href="https://amit-develober.github.io/gK/" class="game-card" style="background: url('image/KN.png') center/cover no-repeat; color: #000000; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);">
+                <span class="emoji"> 🌌 </span>
+                <h2 style="color: #000000;">Great Indian Quiz</h2>
+                <p>Test your General Knowledge</p>
+            </a>
+             <a href="https://amit-develober.github.io/jolly/" class="game-card" style="background: url('image/EH.png') center/cover no-repeat; color: #000000; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);">
+                <span class="emoji"> 📚 </span>
+                <h2 style="color: #000000;">Tap Jolly</h2>
+                <p>Tap And Learn Knowledge</p>
+            </a>
+             <a href="https://amit-develober.github.io/ScienceQuize/" class="game-card" style="background: url('image/SC.png') center/cover no-repeat; color: #000000; text-shadow: 2px 2px 4px rgba(255,255,255,0.8);">
+                <span class="emoji"> ☣︎ </span>
+                <h2 style="color: #000000;">Science QUIZ</h2>
+                <p>Test Your Knowledge</p>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

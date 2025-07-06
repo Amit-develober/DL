@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Digital Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .link-highlight {
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+        }
+
+        .link-highlight:hover {
+            background-color: #e0e0e0;
+            transform: translateX(10px);
+        }
+
+        .resource-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            margin: 0.8rem 0;
+        }
+
+        .resource-card h2 {
+            color: #000000;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .resource-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .e-resources-grid {
+            display: grid;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .e-resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .credit {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        /* Add emoji size control for header */
+        header .emoji {
+            font-size: 1.5em;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Taskbar -->
+    <div class="taskbar" style="background: #4CAF50; padding: 8px 15px; text-align: left; position: sticky; top: 0; z-index: 1000;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">🏠</span> Home
+        </a>
+        <a href="about.html" style="color: white; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">
+            <span class="emoji" style="font-size: 1.2em;">ℹ️</span> About
+          </a>
+    </div>
+    <header>
+        <div class="container">
+            <h1 style="-webkit-text-stroke: 2px #000000; color: white;"><span class="emoji">📚</span> E-Resources</h1>
+            <a href="index.html" class="highlight-link" style="text-decoration: none;">← Back to Home</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="e-resources-grid">
+            <div class="resource-card">
+                <h2>Educational 📰 Websites</h2>
+                <ul>
+                    <li><a href="https://www.edudel.nic.in/" target="_blank" class="link-highlight">Edudel</a></li>
+                    <li><a href="https://ndl.iitkgp.ac.in/" target="_blank" class="link-highlight">National Digital Library</a></li>
+                    <li><a href="https://swayam.gov.in/" target="_blank" class="link-highlight">SWAYAM</a></li>
+                    <li><a href="https://epathshala.nic.in/" target="_blank" class="link-highlight">E-Pathshala</a></li>
+                    <li><a href="https://www.cbse.gov.in/" target="_blank" class="link-highlight">CBSE(Central Board Of Secondary Education)</a></li>
+                    <li><a href="https://ncert.nic.in/" target="_blank" class="link-highlight">NCERT</a></li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h2>Digital 📓 Libraries</h2>
+                <ul>
+                    <li><a href="https://archive.org/" target="_blank" class="link-highlight">Internet Archive</a></li>
+                    <li><a href="https://manybooks.net/" target="_blank" class="link-highlight">Many Books</a></li>
+                </ul>
+                <h2>📄 Support Material</h2>
+                <ul>
+                    <li><a href="https://edustud.nic.in/edu/supportmaterialnew.html" target="_blank" class="link-highlight">Support Material</a></li>
+            </div>
+        </div>
+    </main>
+    
+    <div class="credit">SCAN S.B.V No. 2 Block Janakpuri , New Delhi-110058</div>
+</body>
+</html>
