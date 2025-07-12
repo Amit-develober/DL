@@ -129,19 +129,25 @@
     .search-container {
       display: flex;
       align-items: center;
-      margin-right: 14px;
       position: relative;
+      width: 300px;
+      height: 60px;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-right: 14px;
     }
 
     .search-container input[type="text"] {
-      width: 290px;
-      padding: 12px 45px 12px 15px;
-      border: 2px solid #4CAF50;
-      background: white;
-      color: #333;
-      font-size: 16px;
-      transition: all 0.3s ease;
+      width: 220px;
+      height: 48px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 50px;
       outline: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
     }
 
     .search-container input[type="text"]:focus {
@@ -151,25 +157,31 @@
 
     .search-container input[type="text"]::placeholder {
       color: #999;
+      font-weight: 600;
     }
 
     #searchBtn {
       position: absolute;
-      right: 5px;
-      height: 30px;
-      width: 30px;
-      background: #4CAF50;
-      color: white;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
       border: none;
-      cursor: pointer;
-      transition: all 0.3s;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: white;
+      font-size: 1.2em;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     #searchBtn:hover {
-      background: #45a049;
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #45a049, #1e88e5);
     }
 
     #searchBtn .emoji {
@@ -340,7 +352,7 @@
 
     .card {
       transition: transform 0.2s ease;
-      border-radius: 70px;
+      border-radius: 20px;
       overflow: hidden;
       border: 4px solid #ffffff;
       background-clip: border-box;
@@ -543,7 +555,7 @@
           <span class="emoji">📚</span> E-resources
         </a>
         <div class="search-container">
-          <input type="text" id="searchBar" placeholder="Search resources.....">
+          <input type="text" id="searchBar" placeholder="Search resources......">
           <button id="searchBtn"><span class="emoji">🔍</span></button>
         </div>
         <select id="categorySelect">
