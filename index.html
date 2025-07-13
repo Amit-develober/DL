@@ -60,7 +60,7 @@
     label,
     td,
     th {
-      font-weight: bold !important;
+      font-weight: bold ;
     }
 
     /* Sliding Panel Styles */
@@ -124,68 +124,6 @@
     .highlight-link {
       font-size: 0.9em;
       white-space: nowrap;
-    }
-
-    .search-container {
-      display: flex;
-      align-items: center;
-      position: relative;
-      width: 300px;
-      height: 60px;
-      background: white;
-      border-radius: 50px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin-right: 14px;
-    }
-
-    .search-container input[type="text"] {
-      width: 220px;
-      height: 48px;
-      padding: 0 20px;
-      border: none;
-      border-radius: 50px;
-      outline: none;
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .search-container input[type="text"]:focus {
-      border-color: #45a049;
-      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
-    }
-
-    .search-container input[type="text"]::placeholder {
-      color: #999;
-      font-weight: 600;
-    }
-
-    #searchBtn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      bottom: 10px;
-      background: linear-gradient(135deg, #4CAF50, #2196F3);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      color: white;
-      font-size: 1.2em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    #searchBtn:hover {
-      transform: scale(1.1);
-      background: linear-gradient(135deg, #45a049, #1e88e5);
-    }
-
-    #searchBtn .emoji {
-      font-size: 1.2em;
     }
 
     #categorySelect {
@@ -549,15 +487,15 @@
         <span class="curved-text" style="font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);"><strong
             style="font-weight: 900;">SCAN SBV Digital Library</strong></span>
       </h1>
-      <div class="header-controls">
+      <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
         <a href="e-resources.html" class="highlight-link"
           style="text-decoration: none; margin-right: 10px; border: 2px solid #ffffff; border-radius: 6px; padding: 6px 14px;">
           <span class="emoji">📚</span> E-resources
         </a>
-        <div class="search-container">
-          <input type="text" id="searchBar" placeholder="Search resources......">
-          <button id="searchBtn"><span class="emoji">🔍</span></button>
-        </div>
+        <form id="searchForm" style="display: flex; align-items: center; margin: 0 10px 0 0;">
+          <input type="text" id="searchInput" placeholder="Search......." style="padding: 6px 14px; border: 2px solid #4CAF50; border-radius: 6px; font-size: 1em; outline: none; width: 150px; margin-right: 5px; height: 44px; box-sizing: border-box;" />
+          <button type="submit" style="background: #4CAF50; color: white; border: none; border-radius: 6px; padding: 6px 14px; font-size: 1em; cursor: pointer; transition: background 0.3s; height: 44px; display: flex; align-items: center;">🔍</button>
+        </form>
         <select id="categorySelect">
           <option value="all">📝 All Categories</option>
           <option value="science">🔬Science</option>
@@ -726,23 +664,31 @@
   <button id="scrollTopBtn" title="Go to top">↑</button>
 
   <script>
-    const searchBar = document.getElementById("searchBar");
-    const searchBtn = document.getElementById("searchBtn");
+    // Simple search bar functionality: scroll to first card that matches search
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      if (!query) return;
+      const cards = document.querySelectorAll('.card');
+      let found = false;
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (!found && text.includes(query)) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.style.boxShadow = '0 0 0 4px #4CAF50, 0 8px 24px rgba(0,0,0,0.7)';
+          setTimeout(() => { card.style.boxShadow = ''; }, 1500);
+          found = true;
+        }
+      });
+      if (!found) {
+        alert('No matching resource found.');
+      }
+    });
     const categorySelect = document.getElementById("categorySelect");
     const cards = document.querySelectorAll('.card');
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-    function searchResources() {
-      const searchTerm = searchBar.value.toLowerCase();
-      const selectedCategory = categorySelect.value;
-      cards.forEach(card => {
-        const title = card.querySelector('h2').textContent.toLowerCase();
-        const description = card.querySelector('p').textContent.toLowerCase();
-        const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-        const matchesCategory = selectedCategory === 'all' || card.classList.contains(selectedCategory);
-        card.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
-      });
-    }
+    // Search functionality removed
 
     window.onscroll = function () {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -756,10 +702,6 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     });
-
-    searchBar.addEventListener('input', searchResources);
-    searchBtn.addEventListener('click', searchResources);
-    categorySelect.addEventListener('change', searchResources);
 
     function changeFontSize(action) {
       const root = document.documentElement;
