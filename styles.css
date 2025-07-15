@@ -707,10 +707,7 @@ ul li::before {
 
 
 /* Floating Emojis */
-.floating-emoji {
-    position: fixed;
-    font-size: var(--emoji-size);
-}
+
 
 /* Media Queries */
 @media (max-width: 1200px) {
@@ -805,8 +802,8 @@ ul li::before {
     
     .emoji {
         pointer-events: none;
-        animation: floatEmoji 15s linear infinite;
-        opacity: 0.3;
+        /* animation: floatEmoji 15s linear infinite; */
+        /* opacity: 0.3; */
         z-index: -1;
     }
 }
